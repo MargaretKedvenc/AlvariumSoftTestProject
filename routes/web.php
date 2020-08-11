@@ -18,5 +18,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/employee', 'EmployeeController@index')->name('employee-index');
+Route::get('/employees', 'EmployeeController@index')->name('employee-index');
+Route::get('/employees/import', 'EmployeeController@importPage')->name('import-page');
+Route::post('employees/import', 'EmployeeController@import')->name('import');
 
