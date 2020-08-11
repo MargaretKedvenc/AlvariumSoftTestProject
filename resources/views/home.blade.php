@@ -8,7 +8,11 @@
                 <p class="lead">This is test project created by Marharyta Kozachok.</p>
                 <p class="lead">Here's a list of requirements:</p>
                 <ul>
-                    <li>sample of employees</li>
+                    <li>Sample of employees</li>
+                    <li>Filter employees by department</li>
+                    <li>Filter employees by department</li>
+                    <li>Rendering pagination per page</li>
+                    <li>Importing xml-file</li>
                 </ul>
             </main>
         </div>

@@ -8,6 +8,7 @@ class Employee extends Model
 {
     public $timestamps = false;
     protected $dates = ['birth_date'];
+    protected $guarded = [];
 
     public function department()
     {
@@ -20,6 +21,6 @@ class Employee extends Model
             return $this->month_payment;
         }
 
-        return $this->rate * $this->work_hours;
+        return ($this->rate ?: 0) * ($this->work_hours ?: 0);
     }
 }
