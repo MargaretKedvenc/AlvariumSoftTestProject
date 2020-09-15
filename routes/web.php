@@ -22,3 +22,15 @@ Route::get('/employees', 'EmployeeController@index')->name('employee-index');
 Route::get('/employees/import', 'EmployeeController@importPage')->name('import-page');
 Route::post('employees/import', 'EmployeeController@import')->name('import');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('admin_area', ['middleware' => 'admin', function () {
+    //
+}]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
