@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -70,4 +70,17 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    public function register(Request $request) {
+        $remember = ($request->has('remember')) ? true : false;
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        $this->guard()->login($user, $remember);
+        return $this->registered($request, $user) ?: redirect($this->redirectPath());
+    }
+
+    public function registerAxios(Request $request) {
+        $this->register($request);
+        return 'success';
+    }
+
 }

@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\User;
-use Backpack\CRUD\app\Models\Traits\InheritsRelationsFromParentModel;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Backpack\CRUD\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 
 class BackpackUser extends User
 {
-    use InheritsRelationsFromParentModel;
-    use Notifiable;
+    use Notifiable, CrudTrait;
 
     protected $table = 'users';
 
